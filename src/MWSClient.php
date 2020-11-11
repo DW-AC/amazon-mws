@@ -1149,9 +1149,12 @@ class MWSClient{
 	
 	    $counter = 1;
 	    $query = [
-		    'MarketplaceId' => $this->config['Marketplace_Id'],
-            'QueryStartDateTime' => $queryStartDateTime
+		    'MarketplaceId' => $this->config['Marketplace_Id']
 	    ];
+
+	    if (!empty($queryStartDateTime)) {
+	        $query['QueryStartDateTime'] = $queryStartDateTime;
+        }
 	
 	    foreach($sku_array as $key){
 		    $query['SellerSkus.member.' . $counter] = $key;
