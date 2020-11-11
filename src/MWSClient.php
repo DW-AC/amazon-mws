@@ -1141,7 +1141,7 @@ class MWSClient{
 	 * @return array
 	 * @throws Exception
 	 */
-    public function ListInventorySupply($sku_array = [], string $queryStartDateTime){
+    public function ListInventorySupply($sku_array = [], string $queryStartDateTime = null){
 	
 	    if (count($sku_array) > 50) {
 		    throw new Exception('Maximum amount of SKU\'s for this call is 50');
