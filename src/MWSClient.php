@@ -1141,7 +1141,7 @@ class MWSClient{
 	 * @return array
 	 * @throws Exception
 	 */
-    public function ListInventorySupply($sku_array = []){
+    public function ListInventorySupply($sku_array = [], string $queryStartDateTime){
 	
 	    if (count($sku_array) > 50) {
 		    throw new Exception('Maximum amount of SKU\'s for this call is 50');
@@ -1149,7 +1149,8 @@ class MWSClient{
 	
 	    $counter = 1;
 	    $query = [
-		    'MarketplaceId' => $this->config['Marketplace_Id']
+		    'MarketplaceId' => $this->config['Marketplace_Id'],
+            'QueryStartDateTime' => $queryStartDateTime
 	    ];
 	
 	    foreach($sku_array as $key){
